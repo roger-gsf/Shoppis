@@ -9,6 +9,7 @@ const ProductList = () => {
 
   return (
     <View>
+<<<<<<< HEAD
       <Text>ProductList</Text>
       <FlatList
         style={{ alignSelf: "center", flex: 1 }}
@@ -22,6 +23,9 @@ const ProductList = () => {
         }}
         ListEmptyComponent={<Text>NADA ENCONTRADOOOO!!!!</Text>}
       />
+=======
+      
+>>>>>>> 8d59c41c332a0d0abebad39fa7e9f917abf9f76b
     </View>
   );
 };
