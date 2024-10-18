@@ -8,7 +8,7 @@ export interface ProductDTO {
   rating: Rating;
 }
 
-interface Rating {
+export interface Rating {
   rate: number;
   count: number;
 }
