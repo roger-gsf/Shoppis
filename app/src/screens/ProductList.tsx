@@ -1,15 +1,19 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { ProductDTO } from "../types/Product";
+import { CartContext } from "../contexts/CartContext";
 
 const ProductList = () => {
   const [produtos, setProdutos] = useState<ProductDTO[]>([]);
-  const { theme, colorFonte } = useContext();
+  const { cart } = useContext(CartContext);
+
+  // useEffect(() => {
+
+  // });
 
   return (
     <View>
-<<<<<<< HEAD
       <Text>ProductList</Text>
       <FlatList
         style={{ alignSelf: "center", flex: 1 }}
@@ -23,9 +27,6 @@ const ProductList = () => {
         }}
         ListEmptyComponent={<Text>NADA ENCONTRADOOOO!!!!</Text>}
       />
-=======
-      
->>>>>>> 8d59c41c332a0d0abebad39fa7e9f917abf9f76b
     </View>
   );
 };

@@ -34,7 +34,7 @@ export const CartContextProvider = ({ children }: CartProviderProps) => {
       }
     } catch (error) {
       showError("Não foi possível salvar o carrinho");
-    }
+    } // Teste
   };
 
   const getCart = async () => {
