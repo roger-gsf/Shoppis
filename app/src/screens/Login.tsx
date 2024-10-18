@@ -2,6 +2,7 @@ import { StyleSheet, TextInput, Text, TouchableOpacity } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { SafeAreaView } from "react-native-safe-area-context";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 const Login = () => {
   const { handleLogin } = useContext(UserContext);
@@ -11,6 +12,9 @@ const Login = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      
+      <FontAwesome6 name="lock" size={40} color="white" style={styles.logo} />
+
       <Text style={styles.title}>LOGIN</Text>
       <TextInput
         style={styles.input}
@@ -53,6 +57,7 @@ const styles = StyleSheet.create({
     padding: 10,
     color: "#fff",
     borderColor: "#ccc",
+    borderRadius: 7,
   },
   button: {
     width: "100%",
@@ -61,6 +66,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 12,
+    borderRadius: 7,
   },
   buttonText: {
     color: "#fff",
@@ -70,6 +76,11 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: "bold",
   },
+
+  logo: {
+    marginBottom: 30
+  }
+
 });
 
 export default Login;

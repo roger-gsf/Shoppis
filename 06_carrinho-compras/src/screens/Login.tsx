@@ -11,6 +11,9 @@ const Login = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+
+      
+
       <Text style={styles.title}>LOGIN</Text>
       <TextInput
         style={styles.input}
@@ -53,6 +56,7 @@ const styles = StyleSheet.create({
     padding: 10,
     color: "#fff",
     borderColor: "#ccc",
+    borderRadius: 7
   },
   button: {
     width: "100%",
@@ -61,6 +65,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 12,
+    borderRadius: 7
   },
   buttonText: {
     color: "#fff",
