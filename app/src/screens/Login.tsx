@@ -41,8 +41,6 @@ const Login = () => {
       >
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
-
-      <CardComponent/>
     </SafeAreaView>
   );
 };

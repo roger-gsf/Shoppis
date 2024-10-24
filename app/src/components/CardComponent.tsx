@@ -1,20 +1,20 @@
 import React  from 'react';
-import { View, Image, Text, StyleSheet } from "react-native";
+import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
+import Feather from '@expo/vector-icons/Feather';
 
-
+// Products component
 const CardComponent = ({ productImage, productName, productDescription, productPrice}:any) => {
 
     return (
         <View style={style.container}>
-            {/* <Image source={{uri: productImage}} />
-            <Text>{productName}</Text>
-            <Text>{productDescription}</Text>
-            <Text>{productPrice}</Text> */}
 
-            <Image style={style.image} source={{uri: 'https://th.bing.com/th/id/OIP.mNaaJnjxNQ5hgXEaYrnG-QHaFn?rs=1&pid=ImgDetMain'}} />
-            <Text>{productName}</Text>
-
-            
+            <Image style={style.image} source={{uri: productImage}} />
+            <Text style={style.productName}>{productName}</Text>            
+            <Text style={style.text}>{productDescription}</Text>
+            <View style={style.containerCart}> 
+                <Text>R$ {productPrice}</Text>
+                <TouchableOpacity> <Feather name="shopping-cart" size={24} color="black" /> </TouchableOpacity>
+            </View>
         </View>
     )
 }
@@ -23,17 +23,37 @@ const CardComponent = ({ productImage, productName, productDescription, productP
 const style = StyleSheet.create({
     container: {
         display: 'flex',
-        width: 200,
-        height: 200,
+        width: 210,
+        height: 270,
         flexDirection: 'column',
         alignItems: 'center',
-        backgroundColor: 'red'
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        padding: 20,
+        borderRadius: 5,
+        gap: 15,
+        textAlign: 'center'
+    },
+
+    containerCart: {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 15,
     },
     image:{
         width: 100,
         height: 100,
         marginTop: 15
-    }
+    },
+
+    text: {
+        textAlign: 'center',
+    },
+
+    productName: {
+        fontWeight: 'bold'
+    },
+
 })
 
 
