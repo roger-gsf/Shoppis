@@ -1,3 +1,1 @@
 # Shoppis
-
-a
