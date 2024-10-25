@@ -1,10 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
+import { ICartItem } from "../types/Product";
 
-const CartCard = () => {
+const CartCard = ({ item }: { item: ICartItem }) => {
   return (
     <View>
-      <Text>CartCard</Text>
+      <Text>ProductCard</Text>
+      <Text>{item.product.title}!!!</Text>
+      <Text>
+        R$ {item.product.price}. Quantidade: {item.quantity}.
+      </Text>
     </View>
   );
 };
