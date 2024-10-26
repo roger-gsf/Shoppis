@@ -3,6 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { showError, showSuccess } from "../utils/Toast";
 import axios from "axios";
 import { UserDTO } from "../types/User";
+import React from "react";
 
 type UserContextProps = {
   token: string;
