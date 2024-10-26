@@ -8,6 +8,7 @@ import OrderStatus from "../screens/OrderStatus";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import UserDetails from "../screens/UserDetails";
 import MenuHeader from "../components/MenuHeader";
+import React from "react";
 
 const ProductStack = createNativeStackNavigator();
 
