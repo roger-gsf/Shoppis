@@ -35,7 +35,7 @@ const Cart = () => {
             data={cart}
             renderItem={CartCard} // ({ item }) => <CartCard produto={item} />
             keyExtractor={(item) => item.product.id.toString()}
-            ListEmptyComponent={<Text>NADA ENCONTRADOOOO!!!!</Text>}
+            ListEmptyComponent={<Text>Sem itens no carrinho de compras.</Text>}
           />
         </SafeAreaView>
       </ScrollView>

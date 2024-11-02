@@ -65,7 +65,7 @@ const ProductList = () => {
             contentContainerStyle={{
               flexGrow: 1,
             }}
-            ListEmptyComponent={<Text>NADA ENCONTRADOOOO!!!!</Text>}
+            ListEmptyComponent={<Text>Nenhum produto encontrado.</Text>}
           />
         </SafeAreaView>
       </ScrollView>
