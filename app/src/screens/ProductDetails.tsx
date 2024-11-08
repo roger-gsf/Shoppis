@@ -6,7 +6,6 @@ import {
   View,
 } from "react-native";
 import React, { useContext } from "react";
-import CardComponent from "../components/CardComponent";
 import { CartContext } from "../contexts/CartContext";
 import { axiosInstance } from "../utils/axios";
 import { ProductDTO } from "../types/Product";
