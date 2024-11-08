@@ -4,10 +4,6 @@ import { UserContext } from "../contexts/UserContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
-import CardComponent from "../components/CardComponent";
-
-
-
 const Login = () => {
   const { handleLogin } = useContext(UserContext);
 
