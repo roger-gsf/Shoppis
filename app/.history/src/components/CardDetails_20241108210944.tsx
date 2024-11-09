@@ -1,5 +1,5 @@
 import React, { FC, startTransition } from "react";
-import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Image, Text, StyleSheet } from "react-native";
 import { ProductDTO } from "../types/Product";
 
 
@@ -9,7 +9,11 @@ interface Item {
   
 
 
+
+
   const CardDetails: FC<Item> = ({ item }) => {    
+    
+    
     return (
         <>
         <View style={style.container}>
@@ -22,7 +26,9 @@ interface Item {
         
         <View style={style.containerCart}>
         <Text>R$ {item.price}</Text>
-        <TouchableOpacity style={style.button}> <Text>Adicionar ao carrinho</Text></TouchableOpacity>
+        {/* <TouchableOpacity>
+          <Feather name="shopping-cart" size={24} color="black" />
+        </TouchableOpacity> */}
       </View>
     </View>
         </>
@@ -67,10 +73,6 @@ const style = StyleSheet.create({
 
     textAlign: {
         textAlign: "center"
-    },
-
-    button: {
-        width: "100%"
     }
   });
   

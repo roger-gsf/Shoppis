@@ -67,10 +67,6 @@ const style = StyleSheet.create({
 
     textAlign: {
         textAlign: "center"
-    },
-
-    button: {
-        width: "100%"
     }
   });
   

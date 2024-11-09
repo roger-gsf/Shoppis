@@ -70,7 +70,7 @@ const style = StyleSheet.create({
     },
 
     button: {
-        width: "100%"
+        
     }
   });
   
