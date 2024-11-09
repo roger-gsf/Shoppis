@@ -1,40 +1,20 @@
-import {
-  StyleSheet,
-  Text,
-  Touchable,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import React, { useContext } from "react";
+import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
+import React, { FC, useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { axiosInstance } from "../utils/axios";
 import { ProductDTO } from "../types/Product";
-import ProductCard from "../components/ProductCard";
-import { useRoute } from "@react-navigation/native";
-
-// interface SmallVideoProbs {
-//   title: string;
-//   subtitle: string;
-//   image: string;
-// }
-
-// const SmallVideo = ({ title, subtitle, image }: SmallVideoProbs) => {
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 const ProductDetails = () => {
-  const itens = useRoute<any>();
-  const item = itens.params?.item;
-  // { item }: { item: ProductDTO }
-  const { cart, getCart, addProduct, removeProduct } = useContext(CartContext);
-  /* <Text>ProductDetails</Text> */
-  // <CardComponent />
+  const route = useRoute();
+  const navigation = useNavigation();
+  const { produto } = route.params as { produto: ProductDTO[] };
 
-  // <ProductCard item={item} /> ta temporariamente ali por pura preguiça de fazer um mini frontend, -matheus
+  const { cart, getCart, addProduct, removeProduct } = useContext(CartContext);
 
   const getData = async (input: string) => {
     try {
-      const response = await axiosInstance.get<ProductDTO>(
-        "/products/" + input
-      );
+      const response = await axiosInstance.get<ProductDTO>(`/products/${input}`);
       addProduct(response.data);
     } catch (error) {
       console.log("Erro ao fazer fetching data:", error);
@@ -42,14 +22,66 @@ const ProductDetails = () => {
   };
 
   return (
-    <View>
-      <TouchableOpacity onPress={() => getData(item.id.toString())}>
-        <Text>Adicionar algo no carrinho</Text>
-      </TouchableOpacity>
+    <View style={styles.container}>
+      {produto.map(produtoItem => (
+        <View key={produtoItem.id} style={styles.container}>
+          <Image style={styles.image} source={{ uri: produtoItem.image }} />
+          <Text style={styles.productName}>{produtoItem.title}</Text>
+          <Text style={styles.textAlign}>{produtoItem.description}</Text>
+          <View style={styles.containerCart}>
+            <Text>R$ {produtoItem.price}</Text>
+            <TouchableOpacity style={styles.button} onPress={() => getData(produtoItem.id.toString())}>
+              <Text>Adicionar produto no carrinho</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      ))}
     </View>
   );
 };
 
 export default ProductDetails;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    width: "95%",
+    marginVertical: 8,
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundColor: "white",
+    justifyContent: "center",
+    padding: 20,
+    borderRadius: 5,
+    gap: 15,
+    textAlign: "center",
+  },
+
+  containerCart: {
+    display: "flex",
+    flexDirection: "row",
+    gap: 15,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    marginTop: 15,
+  },
+
+  text: {
+    textAlign: "center",
+  },
+
+  productName: {
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+
+  textAlign: {
+    textAlign: "center"
+  },
+
+  button: {
+    width: "100%"
+  }
+});

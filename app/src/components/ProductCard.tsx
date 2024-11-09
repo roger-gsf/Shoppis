@@ -6,48 +6,21 @@ import { StackProductList } from "../types/StackProductList";
 import { Feather } from "@expo/vector-icons";
 
 interface Item {
-  item: ProductDTO;
+  produto: ProductDTO;
 }
 
-// const ProductCard: FC<Item> = ({ item }) => {
-// const navigation = useNavigation<NavigationProp<StackProductList>>();
-// <TouchableOpacity
-//     onPress={() => navigation.navigate("ProductDetails", item)}
-//   >
-// return (
-//   <View style={styles.container}>
-//     <Text>ProductCard</Text>
-//     <Text>{item.title}!!!</Text>
-//     <Text>
-//       {item.price}, #{item.id}, {item.category}
-//     </Text>
-//     <Text>
-//       Rate: {item.rating.rate}, Num-avaliações: {item.rating.count}
-//     </Text>
-//     <Text>{item.description}</Text>
-//     <Image source={{ uri: item.image }} style={{ width: 200, height: 200 }} />
-//   </View>
-// );
-// </TouchableOpacity>
-// };
+const ProductCard: FC<Item> = ({ produto }) => {
+  const navigation = useNavigation<NavigationProp<StackProductList>>();
 
-// export default ProductCard;
-
-// const styles = StyleSheet.create({
-//   container: {
-//     margin: 20,
-//   },
-// });
-
-// Products component
-const ProductCard: FC<Item> = ({ item }) => {
   return (
     <View style={style.container}>
-      <Image style={style.image} source={{ uri: item.image }} />
-      <Text style={style.productName}>{item.title}</Text>
+      <Image style={style.image} source={{ uri: produto.image }} />
+      <Text style={style.productName}>{produto.title}</Text>
       <View style={style.containerCart}>
-        <Text>R$ {item.price}</Text>
-        <TouchableOpacity>
+        <Text>R$ {produto.price}</Text>
+        <TouchableOpacity onPress={() => {
+          navigation.navigate('ProductDetails', { produto: [produto] }); // Passando um array com um único produto
+        }}>
           <Feather name="shopping-cart" size={24} color="black" />
         </TouchableOpacity>
       </View>

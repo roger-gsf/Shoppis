@@ -19,9 +19,8 @@ const Cart = () => {
 
   useEffect(() => {
     getCart();
-  });
+  }, []);
 
-  // Enviar as informações dentro de um objeto do tipo
   return (
     <SafeAreaProvider>
       <ScrollView showsVerticalScrollIndicator={true} style={styles.scrollView}>
@@ -29,7 +28,7 @@ const Cart = () => {
           <FlatList
             style={{ alignSelf: "center", flex: 1 }}
             data={cart}
-            renderItem={CartCard} // ({ item }) => <CartCard produto={item} />
+            renderItem={({ item }) => <CartCard item={item} />}
             keyExtractor={(item) => item.product.id.toString()}
             ListEmptyComponent={<Text>Sem itens no carrinho de compras.</Text>}
           />
