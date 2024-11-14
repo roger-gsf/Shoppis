@@ -1,9 +1,11 @@
-import { ProductDTO } from "./Product";
+import { ICartItem } from "./Product";
 
 export type StackCartList = {
   Cart: undefined;
   OrderStatus: {
-    produto: ProductDTO[]
-  }
-  Payment: undefined;
+    produtos: ICartItem[];
+  };
+  Payment: {
+    produtos: ICartItem[];
+  };
 };
