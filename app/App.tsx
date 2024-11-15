@@ -7,14 +7,12 @@ import Completion from "./src/screens/Completion";
 
 export default function App() {
   return (
-    // <RootSiblingParent>
-    //   <UserProvider>
-    //     <CartContextProvider>
-    //       <Routes />
-    //     </CartContextProvider>
-    //   </UserProvider>
-    // </RootSiblingParent>
-
-    <Completion />
+    <RootSiblingParent>
+      <UserProvider>
+        <CartContextProvider>
+          <Routes />
+        </CartContextProvider>
+      </UserProvider>
+    </RootSiblingParent>
   );
 }
