@@ -1,17 +1,18 @@
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import React from "react";
 import { ICartItem } from "../types/Product";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 const OrderStatus = () => {
-  const { produtos } = useRoute().params as { produtos: ICartItem[] };
+  const { produto } = useRoute().params as { produto: ICartItem[] };
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Status do Pedido</Text>
       <Text style={styles.successMessage}>Pagamento aprovado com sucesso!</Text>
       <FlatList
-        data={produtos}
+        data={produto}
         renderItem={({ item }: { item: ICartItem }) => (
           <View style={styles.product}>
             <Text>{item.product.title}</Text>

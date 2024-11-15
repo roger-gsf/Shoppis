@@ -3,9 +3,9 @@ import { ICartItem } from "./Product";
 export type StackCartList = {
   Cart: undefined;
   OrderStatus: {
-    produtos: ICartItem[];
+    produto: ICartItem[];
   };
   Payment: {
-    produtos: ICartItem[];
+    produto: ICartItem[];
   };
 };

@@ -1,16 +1,24 @@
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 import React, { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
-import { useNavigation } from "@react-navigation/native";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { ICartItem } from "../types/Product";
+import { StackCartList } from "../types/StackCart";
 
 const Cart = () => {
   const { cart } = useContext(CartContext);
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<StackCartList>>();
 
   // Função para navegar até a tela de pagamento
   const goToPayment = () => {
-    navigation.navigate("Payment", { produtos: cart });
+    navigation.navigate("Payment", { produto: cart });
   };
 
   return (
@@ -48,7 +56,7 @@ const styles = StyleSheet.create({
     padding: 15,
     marginTop: 20,
     alignItems: "center",
-    borderRadius: 8
+    borderRadius: 8,
   },
   buttonText: {
     color: "#fff",
@@ -57,4 +65,3 @@ const styles = StyleSheet.create({
 });
 
 export default Cart;
-
