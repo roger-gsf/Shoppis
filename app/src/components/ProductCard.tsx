@@ -21,7 +21,7 @@ const ProductCard: FC<Item> = ({ produto }) => {
   return (
     <View style={style.container}>
       <TouchableOpacity onPress={() => {
-        navigation.navigate('ProductDetails', { produto: produto }); // Passando um array com um único produto
+        navigation.navigate('ProductDetails', { produto }); // Passando um array com um único produto
       }}>
         <Image style={style.image} source={{ uri: produto.image }} />
         <Text style={style.productName}>{produto.title}</Text>

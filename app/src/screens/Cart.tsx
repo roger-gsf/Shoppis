@@ -25,6 +25,8 @@ const Cart = () => {
     getCart()
   }, [])
 
+  console.log(cart)
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -37,9 +39,9 @@ const Cart = () => {
         )}
         keyExtractor={(item) => item.product.id.toString()}
       />
-      <TouchableOpacity style={styles.paymentButton} onPress={goToPayment}>
+      {<TouchableOpacity style={styles.paymentButton} onPress={goToPayment}>
         <Text style={styles.buttonText}>Ir para o pagamento</Text>
-      </TouchableOpacity>
+      </TouchableOpacity>}
     </View>
   );
 };

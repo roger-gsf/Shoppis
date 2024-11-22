@@ -9,7 +9,7 @@ interface Item {
 const Payment = () => {
   const { produto } = useRoute().params as { produto: ICartItem[] };
   const [paymentStatus, setPaymentStatus] = useState("");
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
 
   // Função para simular o pagamento
   const handlePayment = (method: "PIX" | "Cartão de Crédito") => {

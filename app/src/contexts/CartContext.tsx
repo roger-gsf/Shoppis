@@ -9,6 +9,7 @@ type CartContextProps = {
   getCart: () => void;
   addProduct: (product: ProductDTO) => void;
   removeProduct: (id: number) => void; // Ou remover enviando o produto todo e desestruturar na função
+  deleteCart: () => Promise<void>
 };
 
 type CartProviderProps = {
@@ -37,6 +38,19 @@ export const CartContextProvider = ({ children }: CartProviderProps) => {
     }
   };
 
+  const deleteCart = async () => {
+    try {
+     
+      if (Platform.OS !== "web") {
+        await AsyncStorage.removeItem('@cart');
+      } else if (Platform.OS == "web") {
+        window.localStorage.removeItem('@cart');
+      }
+    } catch (error) {
+      showError("Não foi possível salvar o carrinho");
+    }
+  };
+
   const getCart = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem("@cart");
@@ -48,7 +62,8 @@ export const CartContextProvider = ({ children }: CartProviderProps) => {
   };
 
   const addProduct = (value: ProductDTO) => {
-    const existingProduct = cart.find(({ product }) => value.id === product.id);
+console.log(value)
+    const existingProduct = cart.find(({product}) => value.id === product.id);
 
     if (existingProduct) {
       const newCart = cart.map((item) =>
@@ -82,7 +97,7 @@ export const CartContextProvider = ({ children }: CartProviderProps) => {
   };
 
   return (
-    <CartContext.Provider value={{ cart, getCart, addProduct, removeProduct }}>
+    <CartContext.Provider value={{ cart, getCart, addProduct, removeProduct, deleteCart }}>
       {children}
     </CartContext.Provider>
   );

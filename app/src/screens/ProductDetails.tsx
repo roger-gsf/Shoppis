@@ -8,19 +8,19 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 const ProductDetails = () => {
   const route = useRoute();
 
-  const produtoItem = route.params as ProductDTO;
+  const {produto} = route.params as {produto: ProductDTO};
 
   const {  addProduct } = useContext(CartContext);
 
   return (
     <View style={styles.container}>
-        <View key={produtoItem.id} style={styles.container}>
-          <Image style={styles.image} source={{ uri: produtoItem.image }} />
-          <Text style={styles.productName}>{produtoItem.title}</Text>
-          <Text style={styles.textAlign}>{produtoItem.description}</Text>
+        <View key={produto.id} style={styles.container}>
+          <Image style={styles.image} source={{ uri: produto.image }} />
+          <Text style={styles.productName}>{produto.title}</Text>
+          <Text style={styles.textAlign}>{produto.description}</Text>
           <View style={styles.containerCart}>
-            <Text>R$ {produtoItem.price}</Text>
-            <TouchableOpacity style={styles.button} onPress={() => addProduct(produtoItem)}>
+            <Text>R$ {produto.price}</Text>
+            <TouchableOpacity style={styles.button} onPress={() => addProduct(produto)}>
               <Text>Adicionar produto no carrinho</Text>
             </TouchableOpacity>
             

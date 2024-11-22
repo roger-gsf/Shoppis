@@ -1,26 +1,21 @@
 import { View, Text, StyleSheet, FlatList } from "react-native";
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { ICartItem } from "../types/Product";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { CartContext } from "../contexts/CartContext";
 
 const OrderStatus = () => {
-  const { produto } = useRoute().params as { produto: ICartItem[] };
-  const navigation = useNavigation();
+ // const { produto } = useRoute().params as { produto: ICartItem[] };
+ const { deleteCart } = useContext(CartContext);
+
+ useEffect(() => {
+  deleteCart()
+ }, [])
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Status do Pedido</Text>
       <Text style={styles.successMessage}>Pagamento aprovado com sucesso!</Text>
-      <FlatList
-        data={produto}
-        renderItem={({ item }: { item: ICartItem }) => (
-          <View style={styles.product}>
-            <Text>{item.product.title}</Text>
-            <Text>Quantidade: {item.quantity}</Text>
-          </View>
-        )}
-        keyExtractor={(item) => item.product.id.toString()}
-      />
     </View>
   );
 };
