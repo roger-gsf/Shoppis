@@ -66,6 +66,7 @@ const style = StyleSheet.create({
     width: 100,
     height: 100,
     marginTop: 15,
+    alignSelf: 'center'
   },
 
   text: {

@@ -10,6 +10,7 @@ import { CartContext } from "../contexts/CartContext";
 import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { ICartItem } from "../types/Product";
 import { StackCartList } from "../types/StackCart";
+import CartCard from "../components/CartCard";
 
 const Cart = () => {
   const { cart, getCart } = useContext(CartContext);
@@ -39,9 +40,13 @@ const Cart = () => {
         )}
         keyExtractor={(item) => item.product.id.toString()}
       />
-      {<TouchableOpacity style={styles.paymentButton} onPress={goToPayment}>
-        <Text style={styles.buttonText}>Ir para o pagamento</Text>
-      </TouchableOpacity>}
+
+      {!!cart && cart.length > 0 ? (
+        <TouchableOpacity style={styles.paymentButton} onPress={goToPayment}>
+          <Text style={styles.buttonText}>Ir para o pagamento</Text>
+        </TouchableOpacity>) : (
+          <Text style={{display: 'flex', justifyContent: 'center', marginBottom: '100%'}}>Sem itens no carrinho de compras.</Text>
+        )}
     </View>
   );
 };
@@ -58,7 +63,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "#ccc",
   },
   paymentButton: {
-    backgroundColor: "#333",
+    backgroundColor: "#0038b1",
     padding: 15,
     marginTop: 20,
     alignItems: "center",
