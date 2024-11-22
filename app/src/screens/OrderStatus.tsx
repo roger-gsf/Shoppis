@@ -6,10 +6,11 @@ import { CartContext } from "../contexts/CartContext";
 
 const OrderStatus = () => {
  // const { produto } = useRoute().params as { produto: ICartItem[] };
- const { deleteCart } = useContext(CartContext);
+ const { deleteCart, getCart } = useContext(CartContext);
 
  useEffect(() => {
   deleteCart()
+  getCart()
  }, [])
 
   return (
