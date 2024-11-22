@@ -5,14 +5,14 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from "react-native";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { ICartItem } from "../types/Product";
 import { StackCartList } from "../types/StackCart";
 
 const Cart = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, getCart } = useContext(CartContext);
   // const navigation = useNavigation();
   const navigation = useNavigation<NavigationProp<StackCartList>>();
 
@@ -20,6 +20,10 @@ const Cart = () => {
   const goToPayment = () => {
     navigation.navigate("Payment", { produto: cart });
   };
+
+  useEffect(() => {
+    getCart()
+  }, [])
 
   return (
     <View style={styles.container}>

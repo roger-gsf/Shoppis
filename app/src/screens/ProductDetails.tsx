@@ -7,35 +7,26 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 
 const ProductDetails = () => {
   const route = useRoute();
-  const navigation = useNavigation();
-  const { produto } = route.params as { produto: ProductDTO[] };
 
-  const { cart, getCart, addProduct, removeProduct } = useContext(CartContext);
+  const produtoItem = route.params as ProductDTO;
 
-  const getData = async (input: string) => {
-    try {
-      const response = await axiosInstance.get<ProductDTO>(`/products/${input}`);
-      addProduct(response.data);
-    } catch (error) {
-      console.log("Erro ao fazer fetching data:", error);
-    }
-  };
+  const {  addProduct } = useContext(CartContext);
 
   return (
     <View style={styles.container}>
-      {produto.map(produtoItem => (
         <View key={produtoItem.id} style={styles.container}>
           <Image style={styles.image} source={{ uri: produtoItem.image }} />
           <Text style={styles.productName}>{produtoItem.title}</Text>
           <Text style={styles.textAlign}>{produtoItem.description}</Text>
           <View style={styles.containerCart}>
             <Text>R$ {produtoItem.price}</Text>
-            <TouchableOpacity style={styles.button} onPress={() => getData(produtoItem.id.toString())}>
+            <TouchableOpacity style={styles.button} onPress={() => addProduct(produtoItem)}>
               <Text>Adicionar produto no carrinho</Text>
             </TouchableOpacity>
+            
           </View>
         </View>
-      ))}
+ 
     </View>
   );
 };
