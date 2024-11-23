@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   creditCardPayment: {
-    backgroundColor: "#d55209",
+    backgroundColor: "#4B3588",
     padding: 15,
     marginBottom: 10,
     alignItems: "center",
