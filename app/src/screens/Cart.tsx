@@ -23,10 +23,8 @@ const Cart = () => {
   };
 
   useEffect(() => {
-    getCart()
-  }, [])
-
-  console.log(cart)
+    getCart();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -44,9 +42,18 @@ const Cart = () => {
       {!!cart && cart.length > 0 ? (
         <TouchableOpacity style={styles.paymentButton} onPress={goToPayment}>
           <Text style={styles.buttonText}>Ir para o pagamento</Text>
-        </TouchableOpacity>) : (
-          <Text style={{display: 'flex', justifyContent: 'center', marginBottom: '100%'}}>Sem itens no carrinho de compras.</Text>
-        )}
+        </TouchableOpacity>
+      ) : (
+        <Text
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "100%",
+          }}
+        >
+          Sem itens no carrinho de compras.
+        </Text>
+      )}
     </View>
   );
 };
