@@ -14,17 +14,20 @@ const ProductDetails = () => {
 
   return (
     <View style={styles.container}>
+        
         <View key={produto.id} style={styles.container}>
+
           <Image style={styles.image} source={{ uri: produto.image }} />
           <Text style={styles.productName}>{produto.title}</Text>
           <Text style={styles.textAlign}>{produto.description}</Text>
+          
           <View style={styles.containerCart}>
             <Text>R$ {produto.price}</Text>
             <TouchableOpacity style={styles.button} onPress={() => addProduct(produto)}>
-              <Text>Adicionar produto no carrinho</Text>
+              <Text style={styles.buttonText}>Adicionar produto no carrinho</Text>
             </TouchableOpacity>
-            
           </View>
+
         </View>
  
     </View>
@@ -44,14 +47,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     borderRadius: 5,
-    gap: 15,
+    gap: 20,
     textAlign: "center",
   },
 
   containerCart: {
     display: "flex",
-    flexDirection: "row",
-    gap: 15,
+    flexDirection: "column",
+    alignItems: 'center',
+    gap: 20,
   },
   image: {
     width: 100,
@@ -66,6 +70,7 @@ const styles = StyleSheet.create({
   productName: {
     textAlign: "center",
     fontWeight: "bold",
+    fontSize: 19
   },
 
   textAlign: {
@@ -73,6 +78,18 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    width: "100%"
+    width: 250,
+    backgroundColor: 'darkorange',
+    height: 40,
+    borderRadius: 8,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center'
+  }, 
+
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold'
   }
 });
