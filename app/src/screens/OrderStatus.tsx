@@ -3,15 +3,15 @@ import React, { useContext, useEffect } from "react";
 import { ICartItem } from "../types/Product";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { CartContext } from "../contexts/CartContext";
+import { showSuccess } from "../utils/Toast";
 
 const OrderStatus = () => {
- // const { produto } = useRoute().params as { produto: ICartItem[] };
- const { deleteCart, getCart } = useContext(CartContext);
+  // const { produto } = useRoute().params as { produto: ICartItem[] };
+  const { deleteCart, getCart } = useContext(CartContext);
 
- useEffect(() => {
-  deleteCart()
-  getCart()
- }, [])
+  useEffect(() => {
+    deleteCart();
+  }, []);
 
   return (
     <View style={styles.container}>

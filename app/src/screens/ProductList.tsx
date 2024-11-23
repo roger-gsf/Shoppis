@@ -15,10 +15,13 @@ import { axiosInstance } from ".././utils/axios";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StackProductList } from "../types/StackProductList";
-import { NavigationProp, useNavigation, useRoute } from "@react-navigation/native";
+import {
+  NavigationProp,
+  useNavigation,
+  useRoute,
+} from "@react-navigation/native";
 
 const ProductList = () => {
-
   const [produtos, setProdutos] = useState<ProductDTO[]>();
   const { cart, getCart, addProduct, removeProduct } = useContext(CartContext);
 
@@ -39,7 +42,7 @@ const ProductList = () => {
     <SafeAreaProvider>
       <ScrollView showsVerticalScrollIndicator={true} style={styles.scrollView}>
         <SafeAreaView>
-        <FlatList
+          <FlatList
             style={{
               marginLeft: "4.5%",
             }}
