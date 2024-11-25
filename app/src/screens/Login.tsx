@@ -1,8 +1,9 @@
 import { StyleSheet, TextInput, Text, TouchableOpacity } from "react-native";
-import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import React, { useContext, useState } from "react";
+// import { useEffect} from "react";
 
 const Login = () => {
   const { handleLogin } = useContext(UserContext);

@@ -1,41 +1,36 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import React, { FC, useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
-import { axiosInstance } from "../utils/axios";
 import { ProductDTO } from "../types/Product";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
+// import { useNavigation } from "@react-navigation/native";
+// import { axiosInstance } from "../utils/axios";
 
 const ProductDetails = () => {
   const route = useRoute();
-  const navigation = useNavigation();
-  const { produto } = route.params as { produto: ProductDTO[] };
 
-  const { cart, getCart, addProduct, removeProduct } = useContext(CartContext);
+  const {produto} = route.params as {produto: ProductDTO};
 
-  const getData = async (input: string) => {
-    try {
-      const response = await axiosInstance.get<ProductDTO>(`/products/${input}`);
-      addProduct(response.data);
-    } catch (error) {
-      console.log("Erro ao fazer fetching data:", error);
-    }
-  };
+  const {  addProduct } = useContext(CartContext);
 
   return (
     <View style={styles.container}>
-      {produto.map(produtoItem => (
-        <View key={produtoItem.id} style={styles.container}>
-          <Image style={styles.image} source={{ uri: produtoItem.image }} />
-          <Text style={styles.productName}>{produtoItem.title}</Text>
-          <Text style={styles.textAlign}>{produtoItem.description}</Text>
+        
+        <View key={produto.id} style={styles.container}>
+
+          <Image style={styles.image} source={{ uri: produto.image }} />
+          <Text style={styles.productName}>{produto.title}</Text>
+          <Text style={styles.textAlign}>{produto.description}</Text>
+          
           <View style={styles.containerCart}>
-            <Text>R$ {produtoItem.price}</Text>
-            <TouchableOpacity style={styles.button} onPress={() => getData(produtoItem.id.toString())}>
-              <Text>Adicionar produto no carrinho</Text>
+            <Text>R$ {produto.price}</Text>
+            <TouchableOpacity style={styles.button} onPress={() => addProduct(produto)}>
+              <Text style={styles.buttonText}>Adicionar produto no carrinho</Text>
             </TouchableOpacity>
           </View>
+
         </View>
-      ))}
+ 
     </View>
   );
 };
@@ -53,14 +48,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     borderRadius: 5,
-    gap: 15,
+    gap: 20,
     textAlign: "center",
   },
 
   containerCart: {
     display: "flex",
-    flexDirection: "row",
-    gap: 15,
+    flexDirection: "column",
+    alignItems: 'center',
+    gap: 20,
   },
   image: {
     width: 100,
@@ -75,6 +71,7 @@ const styles = StyleSheet.create({
   productName: {
     textAlign: "center",
     fontWeight: "bold",
+    fontSize: 19
   },
 
   textAlign: {
@@ -82,6 +79,18 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    width: "100%"
+    width: 250,
+    backgroundColor: 'darkorange',
+    height: 40,
+    borderRadius: 8,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center'
+  }, 
+
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold'
   }
 });

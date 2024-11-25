@@ -1,7 +1,8 @@
-import { TouchableOpacity, Image } from "react-native";
 import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native";
+// import { Image } from "react-native";
 
 const MenuHeader = () => {
   const navigation = useNavigation<any>();
