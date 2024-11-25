@@ -1,4 +1,5 @@
-import React = require("react")
+import React from 'react';
+
 import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from "react-native"
 
 const PaymentInfo = () => {

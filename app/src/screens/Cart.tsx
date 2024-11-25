@@ -10,14 +10,14 @@ import { CartContext } from "../contexts/CartContext";
 import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { ICartItem } from "../types/Product";
 import { StackCartList } from "../types/StackCart";
-import CartCard from "../components/CartCard";
+// import CartCard from "../components/CartCard";
 
 const Cart = () => {
   const { cart, getCart } = useContext(CartContext);
   // const navigation = useNavigation();
   const navigation = useNavigation<NavigationProp<StackCartList>>();
 
-  // Função para navegar até a tela de pagamento
+  //// Função para navegar até a tela de pagamento
   const goToPayment = () => {
     navigation.navigate("Payment", { produto: cart });
   };

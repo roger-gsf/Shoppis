@@ -4,8 +4,8 @@ import { ProductDTO } from "../types/Product";
 import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { StackProductList } from "../types/StackProductList";
 import { Feather } from "@expo/vector-icons";
-import { axiosInstance } from "../utils/axios";
 import { CartContext } from "../contexts/CartContext";
+// import { axiosInstance } from "../utils/axios";
 
 interface Item {
   produto: ProductDTO;

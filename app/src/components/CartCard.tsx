@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React, { FC, useContext } from "react";
-import { ICartItem, ProductDTO } from "../types/Product";
 import { CartContext } from "../contexts/CartContext";
 import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { StackCartList } from "../types/StackCart";
 import { Feather } from "@expo/vector-icons";
+import {  Text, View, TouchableOpacity } from "react-native";
+// import { StyleSheet, Image } from "react-native";
+import { ICartItem } from "../types/Product";
+// import { ProductDTO } from "../types/Product";
 
 // interface Item {
 //   item: ProductDTO;
@@ -16,7 +18,7 @@ interface Item {
 }
 
 const CartCard: FC<Item> = ({ item }) => {
-  const { cart, getCart, addProduct, removeProduct } = useContext(CartContext);
+  const { removeProduct } = useContext(CartContext);
   const navigation = useNavigation<NavigationProp<StackCartList>>();
   // const navigation = useNavigation();
   const produto = item.product;

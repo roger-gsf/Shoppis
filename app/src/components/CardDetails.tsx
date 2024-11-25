@@ -1,7 +1,7 @@
-import React, { FC, startTransition } from "react";
 import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { ProductDTO } from "../types/Product";
-
+import React, { FC } from "react";
+// import React, { startTransition } from "react";
 
 interface Item {
     item: ProductDTO;

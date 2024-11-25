@@ -1,9 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import React, { FC, useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
-import { axiosInstance } from "../utils/axios";
 import { ProductDTO } from "../types/Product";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
+// import { useNavigation } from "@react-navigation/native";
+// import { axiosInstance } from "../utils/axios";
 
 const ProductDetails = () => {
   const route = useRoute();

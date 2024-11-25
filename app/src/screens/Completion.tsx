@@ -11,7 +11,7 @@ const Completion = () => {
         <View style={styles.container}>
 
             <View style={styles.containerText}>
-                <Image style={styles.image} source={require('../../src/assets/completion-image.png')} />
+                <Image style={styles.image} source={require('../../src/assets/check-mark.png')} />
 
                 <Text style={styles.headingFont}> Pedido finalizado! </Text>
                 <Text> Aguarde as informações da entrega </Text>
@@ -34,7 +34,7 @@ const Completion = () => {
 const styles = StyleSheet.create({
 
     container: {
-        // backgroundColor: 'red',
+        // DEBUG: backgroundColor: 'red',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     },
 
     containerText: {
-        // backgroundColor: 'green',
+        // DEBUG: backgroundColor: 'green',
         height: 400,
         width: '70%',
         display: 'flex',

@@ -18,7 +18,7 @@ const UserDetails = () => {
 
       <Image
         style={styles.image}
-        source={require('../assets/ching-ling.png')}
+        source={require('../assets/profile-photo.png')}
       />
 
       <Text>

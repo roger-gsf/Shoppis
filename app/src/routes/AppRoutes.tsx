@@ -9,9 +9,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import UserDetails from "../screens/UserDetails";
 import MenuHeader from "../components/MenuHeader";
 import React from "react";
-import { Button, TouchableOpacity, Text } from "react-native";
-import { StackCartList } from "../types/StackCart";
-import { NavigationProp, useNavigation } from "@react-navigation/native";
 
 const ProductStack = createNativeStackNavigator();
 

@@ -1,22 +1,25 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import React, { FC, useState } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { ICartItem } from "../types/Product";
-interface Item {
-  produto: ICartItem;
-}
+import React, { useState } from "react";
+// import { useRoute } from "@react-navigation/native";
+// import { FC } from "react";
+// import { ICartItem } from "../types/Product";
+
+// interface Item {
+//   produto: ICartItem;
+// }
 // const Payment: FC<Item> = ({ produto }) => {
 const Payment = () => {
-  const { produto } = useRoute().params as { produto: ICartItem[] };
+  // const { produto } = useRoute().params as { produto: ICartItem[] };
   const [paymentStatus, setPaymentStatus] = useState("");
   const navigation = useNavigation<any>();
 
-  // Função para simular o pagamento
+  //// Função para simular o pagamento
   const handlePayment = (method: "PIX" | "Cartão de Crédito") => {
-    // Aqui você pode adicionar lógica para processar o pagamento
+
     setPaymentStatus(`Pagamento realizado com sucesso via ${method}`);
 
-    // Depois de processar, redireciona para a tela de status do pedido
+    //// Após processar, redireciona para a tela de status do pedido
     navigation.navigate("OrderStatus");
   };
 

@@ -1,13 +1,14 @@
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import React, { useContext, useEffect } from "react";
-import { ICartItem } from "../types/Product";
-import { useNavigation, useRoute } from "@react-navigation/native";
 import { CartContext } from "../contexts/CartContext";
-import { showSuccess } from "../utils/Toast";
+// import { FlatList } from "react-native";
+// import { showSuccess } from "../utils/Toast";
+// import { ICartItem } from "../types/Product";
+// import { useNavigation, useRoute } from "@react-navigation/native";
 
 const OrderStatus = () => {
   // const { produto } = useRoute().params as { produto: ICartItem[] };
-  const { deleteCart, getCart } = useContext(CartContext);
+  const { deleteCart } = useContext(CartContext);
 
   useEffect(() => {
     deleteCart();
