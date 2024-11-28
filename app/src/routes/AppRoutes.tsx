@@ -9,6 +9,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import UserDetails from "../screens/UserDetails";
 import MenuHeader from "../components/MenuHeader";
 import React from "react";
+import PaymentInfo from "../screens/PaymentInfo";
+import PixPayment from "../screens/PixPayment";
 
 const ProductStack = createNativeStackNavigator();
 
@@ -63,6 +65,20 @@ const CartRoutes = () => {
         component={OrderStatus}
         options={{
           title: "Status do Pedido",
+        }}
+      />
+      <CartStack.Screen
+        name="PaymentInfo"
+        component={PaymentInfo}
+        options={{
+          title: "Pagamento por Cartão de crédito",
+        }}
+      />
+      <CartStack.Screen
+        name="PixPayment"
+        component={PixPayment}
+        options={{
+          title: "Pagamento por Pix",
         }}
       />
     </CartStack.Navigator>

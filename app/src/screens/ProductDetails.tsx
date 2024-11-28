@@ -3,34 +3,31 @@ import React, { FC, useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { ProductDTO } from "../types/Product";
 import { useRoute } from "@react-navigation/native";
-// import { useNavigation } from "@react-navigation/native";
-// import { axiosInstance } from "../utils/axios";
 
 const ProductDetails = () => {
   const route = useRoute();
 
-  const {produto} = route.params as {produto: ProductDTO};
+  const { produto } = route.params as { produto: ProductDTO };
 
-  const {  addProduct } = useContext(CartContext);
+  const { addProduct } = useContext(CartContext);
 
   return (
     <View style={styles.container}>
-        
-        <View key={produto.id} style={styles.container}>
+      <View key={produto.id} style={styles.container}>
+        <Image style={styles.image} source={{ uri: produto.image }} />
+        <Text style={styles.productName}>{produto.title}</Text>
+        <Text style={styles.textAlign}>{produto.description}</Text>
 
-          <Image style={styles.image} source={{ uri: produto.image }} />
-          <Text style={styles.productName}>{produto.title}</Text>
-          <Text style={styles.textAlign}>{produto.description}</Text>
-          
-          <View style={styles.containerCart}>
-            <Text>R$ {produto.price}</Text>
-            <TouchableOpacity style={styles.button} onPress={() => addProduct(produto)}>
-              <Text style={styles.buttonText}>Adicionar produto no carrinho</Text>
-            </TouchableOpacity>
-          </View>
-
+        <View style={styles.containerCart}>
+          <Text>R$ {produto.price}</Text>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => addProduct(produto)}
+          >
+            <Text style={styles.buttonText}>Adicionar produto no carrinho</Text>
+          </TouchableOpacity>
         </View>
- 
+      </View>
     </View>
   );
 };
@@ -55,7 +52,7 @@ const styles = StyleSheet.create({
   containerCart: {
     display: "flex",
     flexDirection: "column",
-    alignItems: 'center',
+    alignItems: "center",
     gap: 20,
   },
   image: {
@@ -71,26 +68,26 @@ const styles = StyleSheet.create({
   productName: {
     textAlign: "center",
     fontWeight: "bold",
-    fontSize: 19
+    fontSize: 19,
   },
 
   textAlign: {
-    textAlign: "center"
+    textAlign: "center",
   },
 
   button: {
     width: 250,
-    backgroundColor: 'darkorange',
+    backgroundColor: "darkorange",
     height: 40,
     borderRadius: 8,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center'
-  }, 
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+  },
 
   buttonText: {
-    color: 'white',
-    fontWeight: 'bold'
-  }
+    color: "white",
+    fontWeight: "bold",
+  },
 });

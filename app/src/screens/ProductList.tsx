@@ -10,20 +10,9 @@ import ProductCard from "../components/ProductCard";
 import { ProductDTO } from "../types/Product";
 import { axiosInstance } from ".././utils/axios";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-// import { CartContext } from "../contexts/CartContext";
-// import { useContext} from "react";
-
-// import { StackProductList } from "../types/StackProductList";
-// import { NativeStackScreenProps } from "@react-navigation/native-stack";
-// import {
-//   NavigationProp,
-//   useNavigation,
-//   useRoute,
-// } from "@react-navigation/native";
 
 const ProductList = () => {
   const [produtos, setProdutos] = useState<ProductDTO[]>();
-  // const { cart, getCart, addProduct, removeProduct } = useContext(CartContext);
 
   const getData = async () => {
     try {
