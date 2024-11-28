@@ -7,18 +7,9 @@ const UserDetails = () => {
 
   return (
     <View style={styles.container}>
-      {/* Standard avatar:
-      <Image
-        style={{ width: 150, height: 150 }}
-        source={{
-          uri: userData?.user.avatar,
-        }}
-      /> 
-      */}
-
       <Image
         style={styles.image}
-        source={require('../assets/profile-photo.png')}
+        source={require("../assets/profile-photo.png")}
       />
 
       <Text>
@@ -37,24 +28,24 @@ export default UserDetails;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: 8
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 8,
   },
   image: {
-    width: 150, 
+    width: 150,
     height: 150,
-    borderRadius: 20
+    borderRadius: 20,
   },
   exitButton: {
-    justifyContent: 'center',
+    justifyContent: "center",
     width: 145,
     height: 38,
-    backgroundColor: 'gray',
-    borderRadius: 8
+    backgroundColor: "gray",
+    borderRadius: 8,
   },
   buttonText: {
-    textAlign: 'center',
-  }
+    textAlign: "center",
+  },
 });

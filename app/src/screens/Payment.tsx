@@ -1,46 +1,20 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useState } from "react";
-// import { useRoute } from "@react-navigation/native";
-// import { FC } from "react";
-// import { ICartItem } from "../types/Product";
 
-// interface Item {
-//   produto: ICartItem;
-// }
-// const Payment: FC<Item> = ({ produto }) => {
 const Payment = () => {
-  // const { produto } = useRoute().params as { produto: ICartItem[] };
-  const [paymentStatus, setPaymentStatus] = useState("");
+  const [paymentStatus, setPaymentStatus] = useState<boolean>(true);
   const navigation = useNavigation<any>();
 
-  //// Função para simular o pagamento
-  const handlePayment = (method: "PIX" | "Cartão de Crédito") => {
-
-    setPaymentStatus(`Pagamento realizado com sucesso via ${method}`);
-
-    //// Após processar, redireciona para a tela de status do pedido
-    navigation.navigate("OrderStatus");
+  const handlePaymentPix = () => {
+    setPaymentStatus(false);
+    navigation.navigate("PixPayment");
   };
 
-  // const ProductCard: FC<Item> = ({ produto }) => {
-  //   const navigation = useNavigation<NavigationProp<StackProductList>>();
-
-  //   return (
-  //     <View style={style.container}>
-  //       <Image style={style.image} source={{ uri: produto.image }} />
-  //       <Text style={style.productName}>{produto.title}</Text>
-  //       <View style={style.containerCart}>
-  //         <Text>R$ {produto.price}</Text>
-  //         <TouchableOpacity onPress={() => {
-  //           navigation.navigate('ProductDetails', { produto: [produto] }); // Passando um array com um único produto
-  //         }}>
-  //           <Feather name="shopping-cart" size={24} color="black" />
-  //         </TouchableOpacity>
-  //       </View>
-  //     </View>
-  //   );
-  // };
+  const handlePaymentCredit = () => {
+    setPaymentStatus(false);
+    navigation.navigate("PaymentInfo");
+  };
 
   return (
     <View style={styles.container}>
@@ -48,14 +22,14 @@ const Payment = () => {
 
       <TouchableOpacity
         style={styles.pixPayment}
-        onPress={() => handlePayment("PIX")}
+        onPress={() => handlePaymentPix()}
       >
         <Text style={styles.buttonText}>Pagamento via PIX</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.creditCardPayment}
-        onPress={() => handlePayment("Cartão de Crédito")}
+        onPress={() => handlePaymentCredit()}
       >
         <Text style={styles.buttonText}>Pagamento via Cartão de Crédito</Text>
       </TouchableOpacity>

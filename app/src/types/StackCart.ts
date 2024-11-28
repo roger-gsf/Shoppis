@@ -8,4 +8,6 @@ export type StackCartList = {
   Payment: {
     produto: ICartItem[];
   };
+  PaymentInfo: undefined;
+  PixPayment: undefined;
 };

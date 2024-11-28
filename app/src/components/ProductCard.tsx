@@ -5,8 +5,6 @@ import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { StackProductList } from "../types/StackProductList";
 import { Feather } from "@expo/vector-icons";
 import { CartContext } from "../contexts/CartContext";
-// import { axiosInstance } from "../utils/axios";
-
 interface Item {
   produto: ProductDTO;
 }
@@ -16,13 +14,13 @@ const ProductCard: FC<Item> = ({ produto }) => {
 
   const { addProduct } = useContext(CartContext);
 
-
-
   return (
     <View style={style.container}>
-      <TouchableOpacity onPress={() => {
-        navigation.navigate('ProductDetails', { produto }); // Passando um array com um único produto
-      }}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("ProductDetails", { produto });
+        }}
+      >
         <Image style={style.image} source={{ uri: produto.image }} />
         <Text style={style.productName}>{produto.title}</Text>
         <View style={style.containerCart}>
@@ -30,12 +28,13 @@ const ProductCard: FC<Item> = ({ produto }) => {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => {
-       addProduct(produto);
-      }}>
+      <TouchableOpacity
+        onPress={() => {
+          addProduct(produto);
+        }}
+      >
         <Feather name="shopping-cart" size={24} color="black" />
       </TouchableOpacity>
-      
     </View>
   );
 };
@@ -66,7 +65,7 @@ const style = StyleSheet.create({
     width: 100,
     height: 100,
     marginTop: 15,
-    alignSelf: 'center'
+    alignSelf: "center",
   },
 
   text: {

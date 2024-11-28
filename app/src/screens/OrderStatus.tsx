@@ -1,14 +1,11 @@
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React, { useContext, useEffect } from "react";
 import { CartContext } from "../contexts/CartContext";
-// import { FlatList } from "react-native";
-// import { showSuccess } from "../utils/Toast";
-// import { ICartItem } from "../types/Product";
-// import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 const OrderStatus = () => {
-  // const { produto } = useRoute().params as { produto: ICartItem[] };
   const { deleteCart } = useContext(CartContext);
+  const navigation = useNavigation<any>();
 
   useEffect(() => {
     deleteCart();
@@ -16,31 +13,71 @@ const OrderStatus = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Status do Pedido</Text>
-      <Text style={styles.successMessage}>Pagamento aprovado com sucesso!</Text>
+      <View style={styles.containerText}>
+        <Image
+          style={styles.image}
+          source={require("../../src/assets/check-mark.png")}
+        />
+
+        <Text style={styles.headingFont}> Pedido finalizado! </Text>
+        <Text> Aguarde as informações da entrega </Text>
+
+        <TouchableOpacity
+          style={styles.buttonFirstPage}
+          onPress={() => {
+            navigation.navigate("Cart");
+          }}
+        >
+          <Text style={styles.buttonText}>Ir para a tela inicial</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    flex: 1,
-    backgroundColor: "#fff",
+    // DEBUG: backgroundColor: 'red',
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    marginTop: "25%",
   },
-  title: {
+
+  containerText: {
+    // DEBUG: backgroundColor: 'green',
+    height: 400,
+    width: "70%",
+    display: "flex",
+    alignItems: "center",
+    gap: 30,
+  },
+
+  image: {
+    width: 100,
+    height: 100,
+  },
+
+  headingFont: {
     fontSize: 20,
     fontWeight: "bold",
   },
-  successMessage: {
-    fontSize: 16,
-    marginVertical: 10,
-    color: "green",
+
+  buttonFirstPage: {
+    height: 50,
+    backgroundColor: "#3D737F",
+    width: 200,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+    marginTop: 50,
   },
-  product: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
+
+  buttonText: {
+    color: "#FFF",
+    fontWeight: "bold",
   },
 });
 

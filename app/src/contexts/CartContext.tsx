@@ -82,15 +82,8 @@ export const CartContextProvider = ({ children }: CartProviderProps) => {
   };
 
   const removeProduct = (id: number) => {
-    /*
-     Pega o array que contém os produtos que estão no carrinho
-     Deixa passar somente os itens que atendem a condição
-     Atribui à variável os item que passaram na condição
-    */
     const newCart = cart.filter((c) => c.product.id !== id);
-    // Salva no state (memória provisória enquanto o app está executando)
     setCart(newCart);
-    // Salva na memória permanente do aparelho
     storeCart(newCart);
   };
 

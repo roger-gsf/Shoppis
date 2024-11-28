@@ -3,7 +3,6 @@ import { UserContext } from "../contexts/UserContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import React, { useContext, useState } from "react";
-// import { useEffect} from "react";
 
 const Login = () => {
   const { handleLogin } = useContext(UserContext);
@@ -13,7 +12,6 @@ const Login = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      
       <FontAwesome6 name="lock" size={40} color="white" style={styles.logo} />
 
       <Text style={styles.title}>LOGIN</Text>
@@ -38,7 +36,6 @@ const Login = () => {
       >
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
-
     </SafeAreaView>
   );
 };
@@ -80,9 +77,8 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    marginBottom: 30
-  }
-
+    marginBottom: 30,
+  },
 });
 
 export default Login;
