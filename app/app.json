@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "06_carrinho-compras",
-    "slug": "06_carrinho-compras",
+    "name": "Shoppin",
+    "slug": "shoppin",
+    "description": "This is the Shoppin",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,10 +19,22 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.matheushrique.shoppin"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5414a030-4aaf-4645-83a9-f11ef48375b6"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/5414a030-4aaf-4645-83a9-f11ef48375b6"
     }
   }
 }
